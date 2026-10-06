@@ -1,6 +1,6 @@
-# PLANET PLUTO ⚔️
+ PLANET PLUTO 
 
-A high-contrast, Bleach-themed anime tracking web application with Tite Kubo's manga aesthetic, built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Supabase**, and the **AniList GraphQL API**.
+An Anime tracking website built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Supabase**, and the **AniList GraphQL API**.
 
 ---
 
@@ -44,18 +44,7 @@ A high-contrast, Bleach-themed anime tracking web application with Tite Kubo's m
 
 ---
 
-## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Framework** | Next.js 16 (App Router, Server Actions, Proxy) |
-| **Language** | TypeScript (Strict mode) |
-| **Styling** | Tailwind CSS v4, Lucide Icons, Radix UI Primitives |
-| **Database & Auth** | Supabase (PostgreSQL, `@supabase/ssr`, RLS) |
-| **External Data** | AniList GraphQL API (`https://graphql.anilist.co`) |
-| **Client State** | TanStack Query v5 |
-
----
 
 ## Getting Started
 
