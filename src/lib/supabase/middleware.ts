@@ -31,13 +31,10 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
-  // IMPORTANT: Avoid writing any logic between createServerClient and
-  // supabase.auth.getUser(). Calling getUser() validates the token against
-  // Supabase Auth and triggers a token refresh if needed.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const isAuthed = Boolean(user);
+  // IMPORTANT: no logic between createServerClient and getClaims().
+  // getClaims() verifies the JWT and triggers a refresh when needed.
+  const { data } = await supabase.auth.getClaims();
+  const isAuthed = Boolean(data?.claims?.sub);
 
   const { pathname } = request.nextUrl;
 

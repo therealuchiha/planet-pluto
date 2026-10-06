@@ -304,16 +304,10 @@ export async function getTopRatedAnime(page = 1, perPage = 20): Promise<PagedMed
 export const BLEACH_FRANCHISE_IDS = [269, 116674, 159322, 169755, 8247, 1686];
 
 export async function getBleachCollection(): Promise<AnimeCardData[]> {
-  try {
-    const data = await anilistRequest<{ Page: { media: AnimeCardData[] } }>(
-      BLEACH_COLLECTION_QUERY,
-      { ids: BLEACH_FRANCHISE_IDS },
-    );
-    const order = BLEACH_FRANCHISE_IDS;
-    return (data.Page.media || []).sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-  } catch {
-    return [];
-  }
+  const data = await anilistRequest<{ Page: { media: AnimeCardData[] } }>(BLEACH_COLLECTION_QUERY, {
+    ids: BLEACH_FRANCHISE_IDS,
+  });
+  return data.Page.media.sort((a, b) => BLEACH_FRANCHISE_IDS.indexOf(a.id) - BLEACH_FRANCHISE_IDS.indexOf(b.id));
 }
 
 export async function getAnimeDetails(id: number): Promise<AnimeDetails | null> {
